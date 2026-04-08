@@ -2,151 +2,161 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Ugly Chaos Page</title>
+<title>CHAOS CIRCUS 🎪</title>
 
 <style>
 body {
     margin: 0;
     overflow: hidden;
-    font-family: Comic Sans MS, cursive;
-    animation: bgFlash 0.2s infinite alternate;
+    font-family: "Comic Sans MS", cursive;
+    animation: bgFlash 0.3s infinite alternate;
 }
 
 /* Background flashing */
 @keyframes bgFlash {
     0% { background: red; }
-    25% { background: lime; }
-    50% { background: blue; }
-    75% { background: yellow; }
-    100% { background: magenta; }
+    20% { background: yellow; }
+    40% { background: lime; }
+    60% { background: cyan; }
+    80% { background: magenta; }
+    100% { background: orange; }
 }
 
-/* Random floating text */
-.text {
+/* Giant spinning title */
+h1 {
     position: absolute;
-    font-size: 30px;
-    animation: moveCrazy 3s infinite, rotate 1s infinite linear, colorShift 0.5s infinite;
-    transition: all 0.2s ease-in-out;
-}
-
-.text:hover {
-    transform: scale(3) skew(20deg);
-    letter-spacing: 20px;
-}
-
-/* Movement chaos */
-@keyframes moveCrazy {
-    0% { top: 10%; left: 10%; }
-    25% { top: 80%; left: 20%; }
-    50% { top: 30%; left: 90%; }
-    75% { top: 60%; left: 40%; }
-    100% { top: 10%; left: 10%; }
-}
-
-/* Rotation */
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* Color madness */
-@keyframes colorShift {
-    0% { color: cyan; }
-    25% { color: red; }
-    50% { color: lime; }
-    75% { color: purple; }
-    100% { color: orange; }
-}
-
-/* Button chaos */
-button {
-    position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
-    padding: 20px;
-    font-size: 20px;
-    cursor: pointer;
-    animation: spinBtn 2s infinite linear, pulse 0.5s infinite alternate;
-    transition: all 0.1s;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    animation: spin 1s infinite linear, colorShift 0.2s infinite;
 }
 
-button:hover {
-    transform: scale(2) rotate(720deg);
-    background: black;
-    color: white;
-    border-radius: 50%;
+/* spinning */
+@keyframes spin {
+    from { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+    to { transform: translate(-50%, -50%) rotate(360deg) scale(1.5); }
 }
 
-/* Button animations */
-@keyframes spinBtn {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(-360deg); }
+/* color flicker */
+@keyframes colorShift {
+    0% { color: white; }
+    50% { color: black; }
+    100% { color: hotpink; }
 }
 
-@keyframes pulse {
-    from { transform: scale(1); }
-    to { transform: scale(1.5); }
-}
-
-/* Glitch box */
+/* bouncing clown box */
 .box {
     width: 100px;
     height: 100px;
+    background: radial-gradient(circle, red, yellow);
     position: absolute;
-    top: 20%;
-    left: 70%;
-    background: white;
-    animation: glitch 0.2s infinite, bounce 1s infinite;
-    transition: all 0.3s;
+    animation: bounce 0.5s infinite alternate,
+               rotateCrazy 0.7s infinite,
+               skewMadness 0.3s infinite;
 }
 
-.box:hover {
-    width: 300px;
-    height: 10px;
-    background: black;
-}
-
-/* Glitch animation */
-@keyframes glitch {
-    0% { transform: translate(0,0); }
-    25% { transform: translate(10px,-10px); }
-    50% { transform: translate(-10px,10px); }
-    75% { transform: translate(5px,-5px); }
-    100% { transform: translate(0,0); }
-}
-
-/* Bounce */
+/* bounce everywhere */
 @keyframes bounce {
-    0%,100% { top: 20%; }
-    50% { top: 80%; }
+    from { top: 0; left: 0; }
+    to { top: 80%; left: 80%; }
 }
 
-/* Spinning image */
-img {
+/* rotation chaos */
+@keyframes rotateCrazy {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(720deg); }
+    100% { transform: rotate(-720deg); }
+}
+
+/* skew insanity */
+@keyframes skewMadness {
+    0% { transform: skew(0deg); }
+    50% { transform: skew(60deg); }
+    100% { transform: skew(-60deg); }
+}
+
+/* clown noses (random circles) */
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     position: absolute;
-    bottom: 10%;
-    left: 10%;
-    width: 150px;
-    animation: spinImg 0.5s infinite linear, skewCrazy 1s infinite alternate;
+    animation: float 2s infinite alternate,
+               pulse 0.2s infinite;
+}
+
+/* float movement */
+@keyframes float {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200px); }
+}
+
+/* size pulsing */
+@keyframes pulse {
+    0% { transform: scale(1); background: red; }
+    50% { transform: scale(2); background: blue; }
+    100% { transform: scale(0.5); background: yellow; }
+}
+
+/* flashing buttons */
+button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    animation: glitch 0.1s infinite;
     transition: all 0.2s;
 }
 
-img:hover {
-    transform: scale(5) rotate(999deg);
+/* glitch effect */
+@keyframes glitch {
+    0% { transform: translateX(-50%) translate(0,0); }
+    25% { transform: translateX(-50%) translate(5px,-5px); }
+    50% { transform: translateX(-50%) translate(-5px,5px); }
+    75% { transform: translateX(-50%) translate(5px,5px); }
+    100% { transform: translateX(-50%) translate(0,0); }
 }
 
-/* Image animations */
-@keyframes spinImg {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+/* hover gets worse */
+button:hover {
+    background: black;
+    color: white;
+    transform: translateX(-50%) scale(3) rotate(360deg);
 }
+</style>
+</head>
 
-@keyframes skewCrazy {
-    from { transform: skew(0deg); }
-    to { transform: skew(45deg); }
+<body>
+
+<h1>🤡 CHAOS CIRCUS 🎪</h1>
+
+<div class="box"></div>
+
+<button onclick="spawnChaos()">DO NOT CLICK</button>
+
+<script>
+function spawnChaos() {
+    for (let i = 0; i < 20; i++) {
+        let c = document.createElement("div");
+        c.className = "circle";
+
+        c.style.top = Math.random() * window.innerHeight + "px";
+        c.style.left = Math.random() * window.innerWidth + "px";
+
+        c.style.animationDuration = (Math.random() * 2 + 0.2) + "s";
+
+        document.body.appendChild(c);
+    }
+
+    // Also shake the entire page
+    document.body.style.animation = "bgFlash 0.1s infinite";
 }
+</script>
 
-/* Scrolling marquee chaos */
-.marquee {
-    position: absolute;
-    bottom:
+</body>
+</html>
