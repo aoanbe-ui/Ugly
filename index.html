@@ -6,12 +6,24 @@
 
 <style>
 body {
+    background: linear-gradient(
+        135deg,
+        #ffd1dc,
+        #ffe8b0, 
+        #d0f0fd, 
+        #c8facc, 
+        #fddde6
+    );
+    background-size: 400% 400%;
+    animation: rainbowGradient 20s ease infinite;
     margin: 0;
-    overflow: hidden;
-    font-family: "Comic Sans MS", cursive;
-    background: linear-gradient(270deg, red, orange, yellow, green, blue, purple);
-    background-size: 1200% 1200%;
-    animation: bgMove 4s infinite alternate;
+    font-family: 'Arial', sans-serif;
+}
+
+@keyframes rainbowGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* background rainbow animation */
@@ -20,7 +32,6 @@ body {
     100% { background-position: 100% 50%; }
 }
 
-/* fake site header */
 .header {
     position: fixed;
     top: 0;
@@ -34,7 +45,6 @@ body {
     z-index: 0;
 }
 
-/* fake nav buttons */
 .nav-button {
     padding: 10px 20px;
     background: #ffd166;
